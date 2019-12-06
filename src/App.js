@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+// 导入路由
+import { Route, Redirect } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// 导入子组件, 带tabbar 的 home 和 不带tabbar的 CityList
+import Home from './pages/Home'
+import CityList from './pages/CityLity'
+
+export default class App extends React.Component {
+  state = {}
+  render() {
+    return (
+      <div className="app">
+        <Route path="/home" component={Home} />
+        <Route path="/citylist" component={CityList} />
+        <Route path="/" exact>
+          <Redirect to="/home" />
+        </Route>
+      </div>
+    )
+  }
 }
-
-export default App;
