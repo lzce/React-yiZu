@@ -68,7 +68,7 @@ export default class Home extends React.Component {
     )
   }
 
-  // tarbar 的渲染方法
+  // tarbar 的渲染元素
   TabBarFn = () => {
     return tarbarList.map(item => {
       return (
